@@ -22,5 +22,20 @@ class AddressBookSpec extends Specification {
       addressBook.addresses.map(toCSV).mkString("\n") mustEqual data
     }
 
+    "count the number of males" in {
+      def createAddress(gender: Gender) = Address(Name("name"), gender, DateOfBirth("16/03/77"))
+
+      new AddressBook(Seq.empty).countMales mustEqual 0
+
+      new AddressBook(Seq(createAddress(Male))).countMales mustEqual 1
+
+      new AddressBook(Seq(createAddress(Female))).countMales mustEqual 0
+
+      new AddressBook(
+        Seq(createAddress(Female),
+            createAddress(Female),
+            createAddress(Male),
+            createAddress(Male))).countMales mustEqual 2
+    }
   }
 }
