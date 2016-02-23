@@ -1,19 +1,12 @@
 package com.gumtree.exercise.model
 
-sealed trait Gender {
-  def value: String
-}
-case object Male extends Gender {
-  val value = "Male"
-}
+sealed abstract class Gender(val value: String)
 
-case object Female extends Gender {
-  val value = "Female"
-}
+case object Male extends Gender("Male")
 
-case object Other extends Gender {
-  val value = "Other"
-}
+case object Female extends Gender("Female")
+
+case object Other extends Gender("Other")
 
 object Gender {
   val genders = List(Male, Female)
