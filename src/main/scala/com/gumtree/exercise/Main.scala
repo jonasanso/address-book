@@ -13,13 +13,8 @@ object Main {
 
   def main(args: Array[String]): Unit = {
 
-    def howManyDaysIsBillOlderThanPaul(addressBook: AddressBook): Unit = {
-      for {
-        bill <- addressBook.findBy(Name("Bill McKnight"))
-        paul <- addressBook.findBy(Name("Paul Robinson"))
-      } yield {
-        println(s"Bill is ${bill.dateOfBirth.daysOlder(paul.dateOfBirth)} days older than Paul")
-      }
+    def showMales(addressBook: AddressBook): Unit = {
+      println(s"Found ${addressBook.countMales} males.")
     }
 
     def showOldest(addressBook: AddressBook): Unit = {
@@ -31,8 +26,13 @@ object Main {
       }
     }
 
-    def showMales(addressBook: AddressBook): Unit = {
-      println(s"Found ${addressBook.countMales} males.")
+    def howManyDaysIsBillOlderThanPaul(addressBook: AddressBook): Unit = {
+      for {
+        bill <- addressBook.findBy(Name("Bill McKnight"))
+        paul <- addressBook.findBy(Name("Paul Robinson"))
+      } yield {
+        println(s"Bill is ${bill.dateOfBirth.daysOlder(paul.dateOfBirth)} days older than Paul")
+      }
     }
 
     args match {
