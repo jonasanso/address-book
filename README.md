@@ -28,9 +28,17 @@ Good Luck!
 
 ## Notes
 
-I am using sbt 0.13.8, java 8, scala 2.11.7 and specs2
+### Prerequisites:
+- sbt 0.13
+- java 8
 
-Steps:
-- Create the model
-- Read the AddressBook
-- Implement finders for AddressBook
+### Run test
+```
+sbt test
+```
+
+### Run app
+```
+sbt "run AddressBook"
+```
+
