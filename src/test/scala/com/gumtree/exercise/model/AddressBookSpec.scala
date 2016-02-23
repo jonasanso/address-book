@@ -17,7 +17,7 @@ class AddressBookSpec extends Specification {
     "read an AddressBook" in {
       val addressBook = AddressBook.read(Source.fromString(data))
 
-      def  toCSV(address: Address) = s"${address.name.value}, ${address.gender.value}, ${address.dateOfBirth.value}"
+      def  toCSV(address: Address) = s"${address.name.value}, ${address.gender.value}, ${address.dateOfBirth.value.format(DateOfBirth.formatter)}"
 
       addressBook.addresses.map(toCSV).mkString("\n") mustEqual data
     }
