@@ -1,5 +1,33 @@
 # Gumtree coding challenge
 
+## Notes for the review
+
+I have used scala because I fill very comfortable with it.
+In scala it is very easy to model an ADT with your domain.
+I love functional programming, so even if I had implemented it
+in Java8 wihtout scala, the code would be similar.
+
+Main class running the exercise tasks and responsible for IO is com.gumtree.exercise.Main
+
+AddressBook class in com.gumtree.exercise.model represents the model for the CSV file proposed
+and AddressBook object contains utility functions to facilitate the tasks.
+
+
+### Prerequisites:
+- sbt 0.13
+- java 8
+
+### Run test
+```
+sbt test
+```
+
+### Run app
+```
+sbt "run AddressBook"
+```
+
+
 ## The task
 
 Your task is to develop a small java application. We need you to build your application in your own GitHub repository.  Please do not fork our repository to create your project.  Once you are done, send us a link to your repository.
@@ -24,21 +52,3 @@ Some insights into what we'll be looking for (and what we will not):
 - We will be looking at how you approach the task (e.g. how you break it into sub-tasks) and how you structure your code to answer the questions
 
 Good Luck!
-
-
-## Notes
-
-### Prerequisites:
-- sbt 0.13
-- java 8
-
-### Run test
-```
-sbt test
-```
-
-### Run app
-```
-sbt "run AddressBook"
-```
-
