@@ -17,6 +17,12 @@ class DateOfBirthSpec extends Specification {
 
       unordered.sorted(DateOfBirth.orderAsc) mustEqual ordered
     }
+
+    "calculate diff in days with another date of birth" in {
+      DateOfBirth("13/07/77").daysOlder(DateOfBirth("13/07/77")) mustEqual 0
+      DateOfBirth("13/07/77").daysOlder(DateOfBirth("14/07/77")) mustEqual 1
+      DateOfBirth("13/07/77").daysOlder(DateOfBirth("12/07/77")) mustEqual -1
+    }
   }
 
 }
