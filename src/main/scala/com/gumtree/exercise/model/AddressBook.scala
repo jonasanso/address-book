@@ -8,7 +8,9 @@ case class Address(name: Name, gender: Gender, dateOfBirth: DateOfBirth)
 
 case class AddressBook(addresses: Seq[Address]) {
 
-  def countMales = addresses.count(_.gender == Male)
+  def countMales: Int = addresses.count(_.gender == Male)
+
+  def findOldest: Option[Address] = addresses.sortBy(_.dateOfBirth)(DateOfBirth.orderAsc).headOption
 }
 
 object AddressBook {

@@ -37,5 +37,17 @@ class AddressBookSpec extends Specification {
             createAddress(Male),
             createAddress(Male))).countMales mustEqual 2
     }
+
+    "find oldest" in {
+      def createAddress(dateOfBirth: DateOfBirth) = Address(Name("name"), Other, dateOfBirth)
+
+      new AddressBook(
+        Seq(createAddress(DateOfBirth("16/03/77")),
+          createAddress(DateOfBirth("15/01/85")),
+          createAddress(DateOfBirth("20/11/91")),
+          createAddress(DateOfBirth("14/08/74")))).findOldest mustEqual Some(createAddress(DateOfBirth("14/08/74")))
+
+
+    }
   }
 }
