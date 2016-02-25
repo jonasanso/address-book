@@ -10,7 +10,10 @@ case class AddressBook(addresses: Seq[Address]) {
 
   def countMales: Int = addresses.count(_.gender == Male)
 
-  def findOldest: Option[Address] = addresses.sortBy(_.dateOfBirth)(DateOfBirth.orderAsc).headOption
+  def findOldest: Option[Address] = addresses match {
+    case Nil => None
+    case _ => Some(addresses.minBy(_.dateOfBirth)(DateOfBirth.orderAsc))
+  }
 
   def findBy(name: Name): Option[Address] = addresses.find(_.name == name)
 
